@@ -49,7 +49,10 @@ def detect_objects():
             results.append({"label": label, "confidence": float(confidence), "box": box.tolist()})
 
     return jsonify({"objects": results})
-
+    
+@app.route('/')
+def home():
+    return "Flask API is running! Use /detect, /caption, /ocr, or /speak."
 
 @app.route('/caption', methods=['POST'])
 def caption_image():
